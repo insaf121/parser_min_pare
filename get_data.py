@@ -8,13 +8,6 @@ driver.get(adress + '/minimal.html')
 html_doc = driver.page_source
 
 soup = BeautifulSoup(html_doc, 'lxml')
-# print html_doc 
-# find_all_tag = soup.find('tbody')
-# all_children = find_all_tag.findChildren()
-# d = soup.find_all
-# all_children_A = all_children.
-# print all_children_A
-# print len(all_children_A)
 mass = []
 
 
