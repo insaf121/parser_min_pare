@@ -11,12 +11,6 @@ soup = BeautifulSoup(html_doc, 'lxml')
 mass = []
 
 
-# def conversion_insaf(text):
-# 	try:
-# 		x = int(text)
-# 	except ValueError:
-# 		x = 0
-# 	return x 
 
 for tbody in soup.find_all('tbody'):
 	for tr in tbody.find_all('tr'):
@@ -27,11 +21,11 @@ for tbody in soup.find_all('tbody'):
 					mass.append(adress + '/' + mylink['href'])
 
 
-
 mass = set(mass)
+
 # mass =  sorted(mass, key=lambda student: student[0] , reverse=True)
 # print mass		
-print len(mass)
+# print len(mass)
 
 
 # a_tags = soup.find_all('a')
