@@ -21,16 +21,28 @@ for a in page.cssselect('table tr td a'):
 
 # print(len(link) )	
 link = list(dict.fromkeys(link)) #unic
+print(len(link))
+link = link[:9]
+
 
 def get_pre(link):
 	page2 = parse(link).getroot()
-	return page2.cssselect("pre")
-	# retutn hrefs2
+	temp = page2.cssselect("pre")
+	if len( temp ) ==0 :
+		temp = []
+	return temp
+
+
+
 # for row in link:
 # 	# print()
 # 	# /html/body/pre/text()
 # 	page2 = parse(row).getroot()
 # 	hrefs2 = page2.cssselect("pre")
+# 	for x in xrange(1,10):
+# 		pass
+# 	print(hrefs2.text_content())
+# 	break
 	# if len(hrefs2) == 1:
 	# 	print('1')
 	# else:
@@ -38,19 +50,33 @@ def get_pre(link):
 	# 	print(row)
 	# 	sdfds
 
+
 # Make the Pool of workers
-pool = ThreadPool(4) 
+pool = ThreadPool(8) 
 
 link_hrefs = pool.map(get_pre, link)
 # #close the pool and wait for the work to finish 
 pool.close() 
 pool.join() 
 
-# print( len( link_hrefs ))
+print( len( link_hrefs ))
 
 for x in link_hrefs:
-	print(x)
-	break
+	for isk in x:
+		min_par.append(isk.text_content())
+		# print( isk.text_content )
+		# break
+print(min_par)		
+
+
+
+
+
+
+
+
+
+
 	# for fte in hrefs2:
 		# min_par.append(fte.text_content())
 
